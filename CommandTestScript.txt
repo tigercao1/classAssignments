@@ -1,0 +1,61 @@
+//2404 A1 Demonstration of Commands Script
+
+//Test add Commands
+//add recording
+add -r 103 "Beatles For Sale" "Beatles" "George Martin" 1964
+//add song
+add -s 1001 "Misery" "Paul McCartney, John Lennon"
+//add track
+add -t 100 1000 1
+
+.log start //begin logging commands only
+
+//add users
+add -u ajones "Anne Jones"
+
+.log clear //clear the logs
+
+//add playlists
+add -p ldnel "Driving Songs"
+//add playlist tracks
+add -l ldnel "Driving Songs" 1001 
+
+//Test delete Commands
+
+.log start_output //begin logging output only
+
+delete -s 1001
+delete -s song_id -p playlist_name -u user_name 
+delete -Global -s song_id -p playlist_name -u user_name
+delete -r 103
+
+.log start_both  //begin logging commands and output
+
+delete -u user_id
+delete -p playist_name -u user_id 
+delete -t song_id recording_id
+
+//Test show Commands
+show songs
+show users
+show playlists -u user_id
+show songs -u user_id -p playlist_name
+show recordings
+
+.log stop //stop logging
+
+show tracks
+
+//Test UI SHELL COMMANDS (start with a dot):
+//not included in this test:
+//.quit --because it will terminate the app
+//.help --not meant to be scripted
+//.log save filename --can be done manually
+//.read --proved by being able to run this script
+//Test Logs
+
+
+.log show //display current log contents on console
+
+//Test Comments
+//This is a comment.
